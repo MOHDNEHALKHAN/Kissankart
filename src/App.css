@@ -1,1 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
 @import "tailwindcss";
+
+@theme {
+    --font-madimi-one : Madimi One, "sans-serif";
+}
