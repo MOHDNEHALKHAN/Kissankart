@@ -1,9 +1,9 @@
 import React from 'react'
-import StartPage from './pages/home/StartPage'
+import Login from './pages/auth/Login'
 
 function App() {
   return (
-    <StartPage />
+    <Login />
   )
 }
 
