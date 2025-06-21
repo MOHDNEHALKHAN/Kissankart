@@ -1,9 +1,10 @@
 import React from 'react'
-import Login from './pages/auth/Login'
+import ProductList from './pages/buyer/ProductList'
 
 function App() {
   return (
-    <Login />
+   
+    <ProductList/>
   )
 }
 
