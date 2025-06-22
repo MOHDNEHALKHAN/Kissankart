@@ -1,10 +1,11 @@
 import React from 'react'
-import ProductList from './pages/buyer/ProductList'
+import BuyerProfile from './pages/buyer/BuyerProfile'
 
 function App() {
   return (
    
-    <ProductList/>
+   <BuyerProfile/>
+    
   )
 }
 

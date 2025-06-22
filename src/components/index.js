@@ -4,6 +4,7 @@ import SearchBar from './ui/SearchBar'
 import Carousel from './shared/Carousel'
 import Footer from './shared/Footer'
 import ProductCard from './shared/ProductCard'
+import ProfileOption from './shared/ProfileOption'
 
 export { 
     Button, 
@@ -11,5 +12,6 @@ export {
     SearchBar,
     Carousel,
     Footer,
-    ProductCard
+    ProductCard,
+    ProfileOption
 }
