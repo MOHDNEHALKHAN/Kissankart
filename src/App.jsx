@@ -1,5 +1,5 @@
 import React from 'react'
-import BuyerProfile from './pages/buyer/BuyerProfile'
+import BuyerProfile from './pages/home/StartPage'
 
 function App() {
   return (

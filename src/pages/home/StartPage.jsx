@@ -8,7 +8,7 @@ function StartPage() {
         <h2 className='font-madimi-one text-fuchsia-950 text-5xl tracking-wider text-center text-wrap px-30 leading-13 '>Farmers Trading App</h2>
       </div>
       <div className='bg-teal-500 w-[180px] h-[60px] rounded-full flex items-center justify-center'>
-        <button className='font-madimi-one text-white text-2xl'>Start Now</button>
+        <button className='font-madimi-one text-white text-2xl cursor-pointer'>Start Now</button>
       </div>
       <img className='absolute bottom-0 origin-center rotate-180' src="src/assets/StartPage_Grass.svg" alt="" />
     </div>

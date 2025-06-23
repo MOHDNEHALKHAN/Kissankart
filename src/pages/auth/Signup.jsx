@@ -85,7 +85,7 @@ function Signup() {
           </div>
         </div>
 
-        <Button type="submit" className="w-full cursor-pointer">
+        <Button type="submit" className="w-full ">
           Sign Up
         </Button>
       </form>

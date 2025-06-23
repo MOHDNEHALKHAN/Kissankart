@@ -12,7 +12,7 @@ export default function Button({
     return(
         <button
             type={type}
-            className={`px-4 py-2 rounded-xl font-inter font-semibold  ${bgColor} ${textColor} ${className}`}
+            className={`px-4 py-2 rounded-xl font-inter font-semibold cursor-pointer ${bgColor} ${textColor} ${className}`}
             {...props}
         >
             {children}

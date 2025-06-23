@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
   return (
     <div>
-      <footer className="flex flex-row justify-evenly items-center rounded-xl shadow-sm mx-7 bg-white my-5 p-4">
+      <footer className="flex flex-row justify-evenly items-center rounded-xl shadow-sm  bg-white mx-4 my-5 py-3 gap-8">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
