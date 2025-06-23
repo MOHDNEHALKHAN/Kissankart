@@ -1,10 +1,10 @@
 import React from 'react'
-import BuyerProfile from './pages/home/StartPage'
+import OrderPage from './pages/buyer/ProductList'
 
 function App() {
   return (
    
-   <BuyerProfile/>
+   <OrderPage/>
     
   )
 }

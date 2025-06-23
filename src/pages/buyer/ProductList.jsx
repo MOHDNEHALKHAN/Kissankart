@@ -5,7 +5,7 @@ function ProductList() {
   return (
     <div className=" relative bg-green-50  justify-center items-center h-screen  overflow-hidden">
       <div className="flex flex-row justify-evenly items-center mx-7 gap-4">
-        <SearchBar />
+        <SearchBar placeholder="Search for Products" />
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

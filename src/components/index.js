@@ -5,6 +5,7 @@ import Carousel from './shared/Carousel'
 import Footer from './shared/Footer'
 import ProductCard from './shared/ProductCard'
 import ProfileOption from './shared/ProfileOption'
+import OrderCard from './shared/OrderCard'
 
 export { 
     Button, 
@@ -13,5 +14,6 @@ export {
     Carousel,
     Footer,
     ProductCard,
-    ProfileOption
+    ProfileOption,
+    OrderCard
 }
