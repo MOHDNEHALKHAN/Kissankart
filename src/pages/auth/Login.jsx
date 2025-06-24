@@ -68,7 +68,7 @@ function Login() {
         >
           Forgot your Password?
         </a>
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full bg-teal-600">
           Log In
         </Button>
       </form>

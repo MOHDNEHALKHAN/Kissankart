@@ -1,5 +1,5 @@
 import React from 'react'
-import OrderPage from './pages/buyer/ProductList'
+import OrderPage from './pages/buyer/CartPage'
 
 function App() {
   return (

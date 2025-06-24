@@ -23,7 +23,7 @@ function BuyerProfile() {
         <div className=" shadow-md flex flex-wrap w-full py-2 px-4 gap-4">
           <Button
             type="click"
-            className="flex flex-row font-light items-center justify-start gap-2"
+            className="flex flex-row font-light items-center justify-start gap-2 bg-teal-600 text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ function BuyerProfile() {
           </Button>
           <Button
             type="click"
-            className="flex flex-row items-center justify-start gap-2"
+            className="flex flex-row items-center justify-start gap-2 bg-teal-600 text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ function BuyerProfile() {
           </Button>
           <Button
             type="click"
-            className=" flex flex-row items-center justify-start gap-2"
+            className=" flex flex-row items-center justify-start gap-2 bg-teal-600 text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -383,7 +383,7 @@ function BuyerProfile() {
           onClick={() => console.log("Go to Edit Profile")}
         />
       </div>
-      <Button className=" mx-4 my-8 ">Log Out</Button>
+      <Button className=" mx-4 my-8 bg-teal-600 text-white">Log Out</Button>
 
       <div className="fixed bottom-0 w-full z-50">
         <Footer />

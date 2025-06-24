@@ -6,6 +6,7 @@ import Footer from './shared/Footer'
 import ProductCard from './shared/ProductCard'
 import ProfileOption from './shared/ProfileOption'
 import OrderCard from './shared/OrderCard'
+import CartItem from './shared/CartItem'
 
 export { 
     Button, 
@@ -15,5 +16,6 @@ export {
     Footer,
     ProductCard,
     ProfileOption,
-    OrderCard
+    OrderCard,
+    CartItem
 }
