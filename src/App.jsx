@@ -1,10 +1,11 @@
 import React from 'react'
-import OrderPage from './pages/buyer/CartPage'
+import OrderPage from './pages/buyer/CheckoutPage'
+import CheckoutPage from './pages/buyer/CheckoutPage'
 
 function App() {
   return (
    
-   <OrderPage/>
+   <CheckoutPage/>
     
   )
 }
