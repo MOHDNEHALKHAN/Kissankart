@@ -1,11 +1,11 @@
 import React from 'react'
 import OrderPage from './pages/buyer/CheckoutPage'
-import OrderSuccess from './pages/buyer/OrderSuccess'
+import Whislist from './pages/buyer/WishlistPage'
 
 function App() {
   return (
    
-   <OrderSuccess/>
+   <Whislist/>
     
   )
 }

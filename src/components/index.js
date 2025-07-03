@@ -7,6 +7,7 @@ import ProductCard from './shared/ProductCard'
 import ProfileOption from './shared/ProfileOption'
 import OrderCard from './shared/OrderCard'
 import CartItem from './shared/CartItem'
+import WishlistCard from './shared/WishlistCard'
 
 export { 
     Button, 
@@ -17,5 +18,6 @@ export {
     ProductCard,
     ProfileOption,
     OrderCard,
-    CartItem
+    CartItem,
+    WishlistCard
 }
