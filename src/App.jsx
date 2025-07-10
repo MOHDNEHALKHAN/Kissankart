@@ -1,12 +1,10 @@
 import React from 'react'
-import OrderPage from './pages/buyer/CheckoutPage'
-import Whislist from './pages/buyer/WishlistPage'
+import HelpcenterPage from './pages/buyer/HelpcenterPage'
 
 function App() {
   return (
    
-   <Whislist/>
-    
+    <HelpcenterPage />
   )
 }
 
