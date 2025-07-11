@@ -13,7 +13,7 @@ export default function CartItem({
   onBuy,
 }) {
   return (
-    <div className="bg-white  p-3 space-y-2">
+    <div className="bg-white  p-3 space-y-2 mx-4">
       {/* Product Row */}
       <div className="flex gap-6 flex-row items-center mx-5">
         <img src={image} alt="product" className="w-18 h-20 object-cover" />

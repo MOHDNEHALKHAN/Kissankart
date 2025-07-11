@@ -53,7 +53,7 @@ function CartPage({origionalamount ="" , discountedamount =""}) {
         </div>
         <button className="text-blue-600 text-sm font-medium">Edit</button>
       </div>
-      <div className="flex flex-col gap-4  my-5 pb-36 ">
+      <div className="flex flex-col gap-4  my-5 pb-36 shadow-sm rounded-lg">
         <CartItem image="https://images.unsplash.com/photo-1511735643442-503bb3bd348a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y3JvcHN8ZW58MHx8MHx8fDA%3D" />
         <CartItem />
         <CartItem />

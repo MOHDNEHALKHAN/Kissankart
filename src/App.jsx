@@ -1,5 +1,5 @@
 import React from 'react'
-import HelpcenterPage from './pages/buyer/HelpcenterPage'
+import HelpcenterPage from './pages/buyer/CartPage'
 
 function App() {
   return (
