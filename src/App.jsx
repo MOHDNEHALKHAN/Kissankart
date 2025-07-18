@@ -1,10 +1,9 @@
 import React from 'react'
-import HelpcenterPage from './pages/buyer/CartPage'
+import Dashboard from './pages/seller/Dashboard'
 
 function App() {
   return (
-   
-    <HelpcenterPage />
+    <Dashboard />
   )
 }
 
