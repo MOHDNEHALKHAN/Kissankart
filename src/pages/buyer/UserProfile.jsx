@@ -1,12 +1,14 @@
 import React from "react";
 import { Button, Footer, ProfileOption } from "../../components/index";
 
-function BuyerProfile() {
+function UserProfile() {
   return (
-    <div className="relative bg-green-50 flex flex-col  h-screen overflow-hidden w-full">
+    <div className="relative bg-amber-50 flex flex-col  h-screen overflow-hidden w-full">
       <div className="1 shadow-xs w-full">
         <div className="flex flex-row justify-between items-center mx-4 gap-4 py-4">
-          <h3 className="font-inter font-medium">Hi! Mohd Nehal Khan</h3>
+          <h3 className="font-inter font-medium text-lg">
+            Hi! Mohd Nehal Khan
+          </h3>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -278,11 +280,13 @@ function BuyerProfile() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="icon icon-tabler icon-tabler-user text-primary text-teal-600"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-file-description text-teal-600"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+              <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+              <path d="M9 17h6" />
+              <path d="M9 13h6" />
             </svg>
           }
           rightIcon={
@@ -317,11 +321,12 @@ function BuyerProfile() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="icon icon-tabler icon-tabler-user text-primary text-teal-600"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-help-circle text-teal-600"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+              <path d="M12 16v.01" />
+              <path d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" />
             </svg>
           }
           rightIcon={
@@ -356,11 +361,11 @@ function BuyerProfile() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="icon icon-tabler icon-tabler-user text-primary text-teal-600"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-circle-check text-teal-600"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+              <path d="M9 12l2 2l4 -4" />
             </svg>
           }
           rightIcon={
@@ -392,4 +397,4 @@ function BuyerProfile() {
   );
 }
 
-export default BuyerProfile;
+export default UserProfile;

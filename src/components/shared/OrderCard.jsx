@@ -7,9 +7,10 @@ export default function OrderCard({
   quantity,
   status = "Delivered",
   deliveryDate,
-  returnDate,
+  returnDate = 9,
   rating = 0,
   onClick,
+  ...props
 }) {
   return (
     <div

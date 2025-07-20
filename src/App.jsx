@@ -1,5 +1,5 @@
 import React from 'react'
-import Dashboard from './pages/seller/Dashboard'
+import Dashboard from './pages/seller/OrderDashboard'
 
 function App() {
   return (

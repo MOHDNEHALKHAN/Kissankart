@@ -8,7 +8,7 @@ function Dashboard() {
   const deliveredOrders = 84;
 
   return (
-    <div className="flex flex-col bg-green-50 items-center h-screen fot-inter">
+    <div className="flex flex-col bg-amber-50 items-center h-screen font-inter">
       <h3 className="text-3xl font-bold text-teal-900 my-6">
         Seller Dashboard
       </h3>

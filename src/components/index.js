@@ -9,6 +9,7 @@ import OrderCard from './shared/OrderCard'
 import CartItem from './shared/CartItem'
 import WishlistCard from './shared/WishlistCard'
 import SellerFooter from './shared/SellerFooter'
+import SellerOrderCard from './shared/SellerOrderCard'
 
 export { 
     Button, 
@@ -21,5 +22,6 @@ export {
     OrderCard,
     CartItem,
     WishlistCard,
-    SellerFooter
+    SellerFooter,
+    SellerOrderCard
 }
