@@ -10,6 +10,7 @@ import CartItem from './shared/CartItem'
 import WishlistCard from './shared/WishlistCard'
 import SellerFooter from './shared/SellerFooter'
 import SellerOrderCard from './shared/SellerOrderCard'
+import CategorySelector from './shared/CategorySelector'
 
 export { 
     Button, 
@@ -23,5 +24,6 @@ export {
     CartItem,
     WishlistCard,
     SellerFooter,
-    SellerOrderCard
+    SellerOrderCard,
+    CategorySelector
 }

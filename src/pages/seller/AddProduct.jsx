@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, SellerFooter } from "../../components/index";
+import { Button, SellerFooter , CategorySelector} from "../../components/index";
 
 function AddProduct() {
   const [images, setImages] = useState([]);
@@ -15,9 +15,19 @@ function AddProduct() {
     );
   };
 
+  const [selectedSubcategory, setSelectedSubcategory] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Use selectedSubcategory in your payload
+    console.log('Chosen subcategory:', selectedSubcategory);
+  };
+
   return (
     <div className="flex flex-col  h-screen bg-amber-50">
-      <form className="my-5 w-full px-10 flex flex-col gap-3">
+      <form 
+      onSubmit={handleSubmit}
+      className="my-5 w-full px-10 flex flex-col gap-3">
         <div className="">
           <label className="block text-sm font-medium text-black mb-1 ">
             Title
@@ -57,11 +67,13 @@ function AddProduct() {
           </div>
         </div>
         <div className="">
-          <label className="block text-sm font-medium text-black mb-1">
-            Category
-          </label>
-          <select
-            id="countries"
+          
+          <CategorySelector 
+          value={selectedSubcategory}
+          onChange={(subcat) => setSelectedSubcategory(subcat)}
+          />
+          {/* <select
+            id="Category"
             className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-600 focus:border-teal-600 block w-full p-2.5"
           >
             <option value="selected"></option>
@@ -69,7 +81,8 @@ function AddProduct() {
             <option value="CA">Canada</option>
             <option value="FR">France</option>
             <option value="DE">Germany</option>
-          </select>
+          </select> */}
+
         </div>
 
         <div className="flex items-center justify-center w-full ">

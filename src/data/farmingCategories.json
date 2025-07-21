@@ -1,0 +1,194 @@
+{
+  "crop_produce": {
+    "label": "Crop Produce",
+    "order": 1,
+    "subcategories": {
+      "cereals_grains": "Cereals & Grains",
+      "legumes_pulses": "Legumes & Pulses",
+      "fruits": "Fruits",
+      "vegetables": "Vegetables",
+      "roots_tubers": "Roots & Tubers",
+      "oilseeds_nuts": "Oilseeds & Nuts",
+      "spices_herbs": "Spices & Herbs",
+      "sugar_starch_crops": "Sugar & Starch Crops",
+      "beverage_crops": "Beverage Crops",
+      "fibre_crops": "Fibre Crops",
+      "forage_fodder": "Forage & Fodder",
+      "medicinal_aromatic": "Medicinal & Aromatic"
+    }
+  },
+  "livestock_animal_products": {
+    "label": "Livestock & Animal Products",
+    "order": 2,
+    "subcategories": {
+      "meat_products": "Fresh & Processed Meat",
+      "dairy": "Dairy Products",
+      "eggs": "Eggs",
+      "bee_products": "Bee Products",
+      "wool_hides": "Wool & Hides",
+      "aquaculture_produce": "Aquaculture Produce",
+      "animal_byproducts": "Animal By-Products"
+    }
+  },
+  "breeding_stock_live_animals": {
+    "label": "Breeding Stock & Live Animals",
+    "order": 3,
+    "subcategories": {
+      "cattle_buffalo": "Cattle & Buffalo",
+      "sheep_goats": "Sheep & Goats",
+      "pigs": "Pigs",
+      "poultry": "Poultry",
+      "rabbits_others": "Rabbits & Others",
+      "bees_queens": "Bees & Queens",
+      "fingerlings_seed": "Fingerlings & Seed",
+      "draft_companion": "Draft/Companion Animals"
+    }
+  },
+  "seeds_planting_material": {
+    "label": "Seeds & Planting Material",
+    "order": 4,
+    "subcategories": {
+      "certified_field_seeds": "Certified Field Seeds",
+      "vegetable_seeds": "Vegetable Seeds",
+      "flower_ornamental_seeds": "Flower & Ornamental Seeds",
+      "fodder_pasture_seeds": "Fodder & Pasture Seeds",
+      "planting_saplings": "Planting Saplings",
+      "tissue_culture_plants": "Tissue Culture Plants"
+    }
+  },
+  "fertilizers_soil_amendments": {
+    "label": "Fertilizers & Soil Amendments",
+    "order": 5,
+    "subcategories": {
+      "synthetic_npk": "Synthetic NPK Fertilizers",
+      "micronutrient_mixes": "Micronutrient Mixes",
+      "organic_manures": "Organic Manures",
+      "lime_gypsum": "Lime & Gypsum",
+      "slow_release_specialty": "Slow-Release & Specialty Fertilizers"
+    }
+  },
+  "crop_protection_agents": {
+    "label": "Crop Protection Agents",
+    "order": 6,
+    "subcategories": {
+      "insecticides": "Insecticides",
+      "fungicides": "Fungicides",
+      "herbicides": "Herbicides",
+      "biopesticides": "Biopesticides",
+      "integrated_pest_traps": "Integrated Pest Management Traps"
+    }
+  },
+  "growth_regulators_biostimulants": {
+    "label": "Growth Regulators & Biostimulants",
+    "order": 7,
+    "subcategories": {
+      "plant_hormones": "Plant Hormones",
+      "seaweed_extracts": "Seaweed Extracts",
+      "amino_acid_chelates": "Amino Acid Chelates"
+    }
+  },
+  "animal_feed_supplements": {
+    "label": "Animal Feed & Supplements",
+    "order": 8,
+    "subcategories": {
+      "compound_feed": "Compound Feed",
+      "concentrates_premixes": "Concentrates & Premixes",
+      "roughage_fodder": "Roughage & Fodder",
+      "feed_additives": "Feed Additives"
+    }
+  },
+  "veterinary_health_products": {
+    "label": "Veterinary Health Products",
+    "order": 9,
+    "subcategories": {
+      "vaccines": "Vaccines",
+      "antiparasitics": "Antiparasitics",
+      "antibiotics_medicines": "Antibiotics & Medicines",
+      "disinfectants": "Disinfectants",
+      "veterinary_equipment": "Veterinary Equipment"
+    }
+  },
+  "farm_machinery_equipment": {
+    "label": "Farm Machinery & Equipment",
+    "order": 10,
+    "subcategories": {
+      "tractors_power_units": "Tractors & Power Units",
+      "tillage_implements": "Tillage Implements",
+      "sowing_transplanting": "Sowing & Transplanting Equipment",
+      "crop_care_sprayers": "Crop Care & Sprayers",
+      "fertilizer_spreaders": "Fertilizer Spreaders",
+      "irrigation_systems": "Irrigation Systems",
+      "harvesters_pickers": "Harvesters & Pickers",
+      "post_harvest_machinery": "Post-Harvest Machinery",
+      "handling_transport": "Handling & Transport Equipment",
+      "precision_ag_tech": "Precision Agriculture Technology",
+      "manual_tools": "Manual Tools"
+    }
+  },
+  "irrigation_water_management": {
+    "label": "Irrigation & Water Management",
+    "order": 11,
+    "subcategories": {
+      "pipes_fittings": "Pipes & Fittings",
+      "sprinkler_sets": "Sprinkler Sets",
+      "valves_filters": "Valves & Filters",
+      "storage_tanks": "Storage & Tanks"
+    }
+  },
+  "greenhouse_controlled_environment": {
+    "label": "Greenhouse & Controlled Environment",
+    "order": 12,
+    "subcategories": {
+      "structures_coverings": "Structures & Coverings",
+      "climate_control": "Climate Control Systems",
+      "hydroponic_systems": "Hydroponic Systems",
+      "sensors_automation": "Sensors & Automation"
+    }
+  },
+  "packaging_post_harvest": {
+    "label": "Packaging & Post-Harvest Supplies",
+    "order": 13,
+    "subcategories": {
+      "crates_bins": "Crates & Bins",
+      "bags_sacks": "Bags & Sacks",
+      "cold_chain_consumables": "Cold-Chain Consumables",
+      "grading_sorting": "Grading & Sorting Equipment"
+    }
+  },
+  "farm_infrastructure_construction": {
+    "label": "Farm Infrastructure & Construction",
+    "order": 14,
+    "subcategories": {
+      "animal_housing": "Animal Housing",
+      "storage_buildings": "Storage Buildings",
+      "fencing_trellis": "Fencing & Trellis Systems",
+      "renewable_energy": "Renewable Energy Systems"
+    }
+  },
+  "forestry_agroforestry": {
+    "label": "Forestry & Agroforestry Products",
+    "order": 15,
+    "subcategories": {
+      "timber_poles": "Timber & Poles",
+      "fuelwood_charcoal": "Fuelwood & Charcoal",
+      "ntfps": "Non-Timber Forest Products (NTFPs)"
+    }
+  },
+  "renewable_bioenergy": {
+    "label": "Renewable Bio-Energy Crops & Inputs",
+    "order": 16,
+    "subcategories": {
+      "biofuel_feedstocks": "Biofuel Feedstocks",
+      "biomass_pellets": "Biomass Pellets"
+    }
+  },
+  "digital_services_software": {
+    "label": "Digital Services & Farm Software",
+    "order": 17,
+    "subcategories": {
+      "advisory_apps": "Advisory Apps",
+      "iot_sensors": "IoT & Sensors",
+      "insurance_finance": "Insurance & Finance Services"
+    }
+  }
+}

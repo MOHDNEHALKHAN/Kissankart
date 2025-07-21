@@ -1,9 +1,9 @@
 import React from 'react'
-import AddProduct from './pages/seller/AddProduct'
+import EditProduct from './pages/seller/EditProduct'
 
 function App() {
   return (
-    <AddProduct />
+    <EditProduct />
   )
 }
 
