@@ -1,9 +1,9 @@
 import React from 'react'
-import Dashboard from './pages/seller/OrderDashboard'
+import AddProduct from './pages/seller/AddProduct'
 
 function App() {
   return (
-    <Dashboard />
+    <AddProduct />
   )
 }
 
