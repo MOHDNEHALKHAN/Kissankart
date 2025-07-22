@@ -11,6 +11,7 @@ import WishlistCard from './shared/WishlistCard'
 import SellerFooter from './shared/SellerFooter'
 import SellerOrderCard from './shared/SellerOrderCard'
 import CategorySelector from './shared/CategorySelector'
+import GoodsCard from './shared/GoodsCard'
 
 export { 
     Button, 
@@ -25,5 +26,6 @@ export {
     WishlistCard,
     SellerFooter,
     SellerOrderCard,
-    CategorySelector
+    CategorySelector,
+    GoodsCard
 }
