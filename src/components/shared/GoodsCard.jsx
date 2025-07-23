@@ -5,7 +5,7 @@ import {Button} from '../../components/index'
 function GoodsCard() {
     const product = {
         title : "Deere Tractor",
-        price : "100",
+        price : "500000",
         quantity : "50",
         image : "https://www.deere.co.in/assets/images/region-1/products/tractors/john-deere-e-series-cab.jpg",
     }

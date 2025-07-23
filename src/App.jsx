@@ -1,5 +1,5 @@
 import React from 'react'
-import Dashboard from './pages/seller/ViewProduct'
+import Dashboard from './pages/seller/InvoiceGenerator'
 
 function App() {
   return (
