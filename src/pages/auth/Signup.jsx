@@ -85,7 +85,7 @@ function Signup() {
           </div>
         </div>
 
-        <Button type="submit" className="w-full bg-teal-600">
+        <Button type="submit" className="w-full bg-teal-600 text-white">
           Sign Up
         </Button>
       </form>
