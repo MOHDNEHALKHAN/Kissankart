@@ -1,5 +1,6 @@
 import React ,{useState} from "react";
 import { Button, Input } from "../../components/index";
+import logo from "../../assets/FarmerLogo.svg";
 
 function Login() {
 
@@ -7,7 +8,7 @@ function Login() {
 
   return (
     <div className="relative bg-green-50 flex flex-col justify-center items-center h-screen gap-20 overflow-hidden">
-      <img src="src/assets/Farmer-Logo.svg" alt="farmer logo" />
+      <img src={logo} alt="farmer logo" />
       <form action="" className="flex flex-col gap-7 mx-10">
         <Input
           label="Email"

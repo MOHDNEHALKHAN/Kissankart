@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Button, Input } from "../../components/index";
+import logo from "../../assets/FarmerLogo.svg";
 
 function Signup() {
   const [visiblePassword, setvisiblePassword] = useState(false);
 
   return (
     <div className="relative bg-green-50 flex flex-col justify-center items-center h-screen gap-10 overflow-hidden">
-      <img src="src/assets/Farmer-Logo.svg" alt="farmer logo" />
+      <img src={logo} alt="farmer logo" />
       <form action="" className="flex flex-col gap-6 mx-10">
         <Input label="Name" type="name" placeholder="Full Name" />
         <Input label="Email" type="email" placeholder="Email" />

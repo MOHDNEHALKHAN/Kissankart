@@ -1,9 +1,9 @@
 import React from 'react'
-import Dashboard from './pages/auth/Login'
+import Login from './pages/auth/Login'
 
 function App() {
   return (
-    <Dashboard />
+    <Login />
   )
 }
 
