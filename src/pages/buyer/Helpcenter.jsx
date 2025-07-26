@@ -1,7 +1,7 @@
 import React from "react";
 import { Footer, OrderCard } from "../../components/index";
 
-function HelpcenterPage() {
+function Helpcenter() {
   return (
     <div className="relative bg-green-50 flex flex-col  h-screen w-full">
       <div className="flex flex-row mt-4 gap-2 mx-4 ">
@@ -43,4 +43,4 @@ function HelpcenterPage() {
   );
 }
 
-export default HelpcenterPage;
+export default Helpcenter;

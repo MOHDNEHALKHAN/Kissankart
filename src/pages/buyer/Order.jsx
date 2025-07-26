@@ -1,7 +1,7 @@
 import React from 'react'
 import {SearchBar , Button , Footer, OrderCard} from '../../components/index'
 
-function OrderPage() {
+function Order() {
   return (
     <div className="relative bg-green-50 flex flex-col  h-screen overflow-hidden w-full">
 <div className='flex flex-col'>
@@ -27,4 +27,4 @@ function OrderPage() {
   )
 }
 
-export default OrderPage
+export default Order;

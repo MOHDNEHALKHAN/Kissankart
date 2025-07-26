@@ -1,7 +1,7 @@
 import React from 'react'
 import { WishlistCard } from '../../components/index';
 
-function WishlistPage() {
+function Wishlist() {
   return (
     <div className="relative bg-green-50 flex flex-col  h-screen overflow-hidden w-full">
       <div className="flex flex-col">
@@ -36,4 +36,4 @@ function WishlistPage() {
   );
 }
 
-export default WishlistPage
+export default Wishlist;

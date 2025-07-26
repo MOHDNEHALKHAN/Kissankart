@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../../components";
 import basket from "../../assets/Basket.svg";
 
-function OrderdetailPage() {
+function Orderdetail() {
   const orderId = "12345";
   const Address = "123 Main St, Springfield, USA";
   const PaymentMethod = "*** 2456";
@@ -44,4 +44,4 @@ function OrderdetailPage() {
   );
 }
 
-export default OrderdetailPage;
+export default Orderdetail;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Footer, Button, CartItem } from "../../components/index";
 
-function CartPage({origionalamount ="" , discountedamount =""}) {
+function Cart({origionalamount ="" , discountedamount =""}) {
 
   const address = "111, New Delhi , 221342";
   return (
@@ -72,6 +72,4 @@ function CartPage({origionalamount ="" , discountedamount =""}) {
   );
 }
 
-export default CartPage;
-
-
+export default Cart;

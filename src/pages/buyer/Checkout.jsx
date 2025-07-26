@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../../components/index";
 
-const CheckoutPage = () => {
+const Checkout = () => {
   const address = "xýx";
   const product = {
     title: "Natural Almonds grown in Afg",
@@ -127,4 +127,4 @@ const CheckoutPage = () => {
   );
 };
 
-export default CheckoutPage;
+export default Checkout;
