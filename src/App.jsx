@@ -1,59 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import './App.css';
-import { Provider } from 'react-redux';
-import store from './store/store.js';
-import { RouterProvider, createBrowserRouter } from 'react-router';
+//App.jsx
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Outlet } from 'react-router';
+import authService from './services/appwrite/auth';
+import { login, logout } from './features/auth/authSlice';
 
-import BuyerRoutes from './pages/buyer/Index.jsx';   
-import SellerRoutes from './pages/seller/Index.jsx'; 
-import StartPage from './pages/home/StartPage.jsx';
-import Login from './pages/auth/Login';
-import Signup from './pages/auth/Signup';
-import AuthLayout from './layout/AuthLayout.jsx';
+function App() {
+  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    children: [
-      {
-        path: '/',
-        element: <StartPage />
-      },
-      {
-        path: '/login',
-        element: (
-          <AuthLayout authentication={false}>
-            <Login />
-          </AuthLayout>
-        )
-      },
-      {
-        path: '/signup',
-        element: (
-          <AuthLayout authentication={false}>
-            <Signup />
-          </AuthLayout>
-        )
-      },
-      {
-        path: '/buyer/*',
-        element: <BuyerRoutes />
-      },
-      {
-        path: '/seller/*',
-        element: <SellerRoutes />
-      }
-    ]
-  }
-]);
+  useEffect(() => {
+    authService.getCurrentUser()
+      .then((userData) => {
+        if (userData) {
+          dispatch(login({ userData }));
+        } else {
+          dispatch(logout());
+        }
+      })
+      .finally(() => setLoading(false));
+  }, [dispatch]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </React.StrictMode>
-);
+  return !loading ? (
+    <div className="min-h-screen">
+      <Outlet />
+    </div>
+  ) : (
+    <div className="text-center mt-10 text-xl">Loading...</div>
+  );
+}
+
+export default App;
