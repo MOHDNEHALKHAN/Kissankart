@@ -1,8 +1,10 @@
 import React from "react";
 import { Button } from "../../components";
 import basket from "../../assets/Basket.svg";
+import { useNavigate } from "react-router";
 
 function OrderdetailPage() {
+  const navigate = useNavigate();
   const orderId = "12345";
   const Address = "123 Main St, Springfield, USA";
   const PaymentMethod = "*** 2456";
@@ -17,11 +19,17 @@ function OrderdetailPage() {
         <img className="my-4 w-50" src={basket} alt="logo" />
       </div>
       <div className="flex flex-col items-center justify-center gap-2 mb-6">
-        <h3 className="font-inter font-semibold text-teal-900 text-2xl">Delivery Address</h3>
-        <p className="font-inter font-medium flex-wrap items-center px-25 mx-4">{Address}</p>
+        <h3 className="font-inter font-semibold text-teal-900 text-2xl">
+          Delivery Address
+        </h3>
+        <p className="font-inter font-medium flex-wrap items-center px-25 mx-4">
+          {Address}
+        </p>
       </div>
       <div className="flex flex-col items-center justify-center gap-2 mb-6">
-        <h3 className="font-inter font-semibold text-teal-900 text-2xl ">Payment Method</h3>
+        <h3 className="font-inter font-semibold text-teal-900 text-2xl ">
+          Payment Method
+        </h3>
         <p className="font-inter font-medium">{PaymentMethod}</p>
       </div>
       <div className="my-6 space-y-2 text-gray-800 text-lg font-medium">
@@ -39,7 +47,12 @@ function OrderdetailPage() {
         </div>
       </div>
       <div></div>
-      <Button className="bg-teal-600 text-white px-30">Reorder</Button>
+      <Button
+        onClick={() => navigate("/buyer/checkout")}
+        className="bg-teal-600 text-white px-30"
+      >
+        Reorder
+      </Button>
     </div>
   );
 }

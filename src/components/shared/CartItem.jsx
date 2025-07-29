@@ -69,10 +69,10 @@ export default function CartItem({
 
       {/* Buttons Row */}
       <div className="grid grid-cols-2 divide-x border-t text-sm text-center mt-2">
-        <button className="py-2 cursor-pointer" onClick={onRemove}>
+        <button className="py-2 cursor-pointer" >
           Remove
         </button>
-        <button className="py-2 cursor-pointer" onClick={onWishlist}>
+        <button className="py-2 cursor-pointer" o>
           Add to wishlist
         </button>
       </div>

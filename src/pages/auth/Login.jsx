@@ -1,10 +1,18 @@
 import React ,{useState} from "react";
 import { Button, Input } from "../../components/index";
 import logo from "../../assets/FarmerLogo.svg";
+import { useNavigate } from "react-router";
 
 function Login() {
 
    const [visiblePassword, setvisiblePassword] = useState(false);
+   const navigate = useNavigate();
+   const handleSignup = () => {
+      navigate('/signup');
+   }
+   const handleLogin = () => {
+      navigate('/buyer/');
+   }
 
   return (
     <div className="relative bg-green-50 flex flex-col justify-center items-center h-screen gap-20 overflow-hidden">
@@ -69,14 +77,14 @@ function Login() {
         >
           Forgot your Password?
         </a>
-        <Button type="submit" className="w-full bg-teal-600 text-white">
+        <Button onClick={handleLogin} type="submit" className="w-full bg-teal-600 text-white">
           Log In
         </Button>
       </form>
 
       <p className="font-inter font-medium text-teal-600">
         Don’t have any account?{" "}
-        <a href="" className="font-inter font-semibold text-blue-600">
+        <a onClick={handleSignup} className="font-inter font-semibold text-blue-600 cursor-pointer">
           Sign Up
         </a>
       </p>

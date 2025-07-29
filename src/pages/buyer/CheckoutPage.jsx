@@ -1,7 +1,9 @@
 import React from "react";
 import { Button } from "../../components/index";
+import { useNavigate } from "react-router";
 
 const CheckoutPage = () => {
+  const navigate = useNavigate();
   const address = "xýx";
   const product = {
     title: "Natural Almonds grown in Afg",
@@ -10,6 +12,16 @@ const CheckoutPage = () => {
     price: 499,
     image:
       "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?q=80&w=400",
+  };
+
+  const handlePlaceOrder = () => {
+    // Simulate payment result (replace with real payment logic)
+    const paymentSuccessful = Math.random() > 0.5; // Randomly succeed or fail
+    if (paymentSuccessful) {
+      navigate("/buyer/order-success");
+    } else {
+      navigate("/buyer/order-failed");
+    }
   };
 
   return (
@@ -55,7 +67,6 @@ const CheckoutPage = () => {
             <p className="text-gray-700 text-sm">Qty: {product.qty}</p>
           </div>
         </div>
-        
       </div>
 
       {/* Totals */}
@@ -73,7 +84,6 @@ const CheckoutPage = () => {
           <span>₹{product.price}</span>
         </div>
       </div>
-      
 
       {/* Payment Method */}
       <div className="bg-white rounded-lg shadow-sm p-4 flex justify-between items-center">
@@ -119,7 +129,10 @@ const CheckoutPage = () => {
 
       {/* Place Order Button */}
       <div className="mt-4">
-        <Button className="bg-teal-600 text-white w-full py-2 rounded-lg">
+        <Button
+          onClick={handlePlaceOrder}
+          className="bg-teal-600 text-white w-full py-2 rounded-lg"
+        >
           Place Order
         </Button>
       </div>
