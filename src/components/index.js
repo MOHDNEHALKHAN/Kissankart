@@ -2,6 +2,7 @@ import Button from './ui/Button'
 import Input from './ui/Input'
 import SearchBar from './ui/SearchBar'
 import Carousel from './shared/Carousel'
+import SellerCarousel from './shared/SellerCarousel'
 import Footer from './shared/Footer'
 import ProductCard from './shared/ProductCard'
 import ProfileOption from './shared/ProfileOption'
@@ -27,5 +28,6 @@ export {
     SellerFooter,
     SellerOrderCard,
     CategorySelector,
-    GoodsCard
+    GoodsCard,
+    SellerCarousel
 }

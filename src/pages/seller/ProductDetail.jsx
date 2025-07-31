@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import {Carousel} from '../../components/index'
+import {SellerCarousel} from '../../components/index'
 
 function ProductDetail() {
   const navigate = useNavigate();
@@ -37,15 +37,8 @@ function ProductDetail() {
         
       </div>
 <h1 className="text-xl font-bold text-gray-700 mx-2">Product Details</h1>
-      <div className="flex justify-center mb-6">
-        {/* <img
-          src={product.image}
-          alt={product.title}
-          className="w-56 h-56 object-contain"
-        /> */}
-       
-      </div>
-      <Carousel className="w-full" />
+    
+      <SellerCarousel className="w-full" />
       <table className="w-full text-base text-black border-collapse">
         <tbody>
           <tr>
