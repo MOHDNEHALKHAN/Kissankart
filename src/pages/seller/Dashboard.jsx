@@ -1,7 +1,9 @@
 import React from "react";
 import { Button , SellerFooter } from "../../components/index";
+import { useNavigate } from "react-router";
 
 function Dashboard() {
+  const navigate = useNavigate();
   const totalOrders = 120;
   const pendingOrders = 24;
   const shippedOrders = 12;
@@ -9,7 +11,7 @@ function Dashboard() {
 
   return (
     <div className="flex flex-col bg-amber-50 items-center h-screen font-inter">
-      <h3 className="text-3xl font-bold text-teal-900 my-6">
+      <h3 className="text-3xl font-bold text-teal-900 my-6 text-center">
         Seller Dashboard
       </h3>
       <div className="flex flex-row flex-wrap gap-1 justify-center">
@@ -38,6 +40,7 @@ function Dashboard() {
       </div>
       <div className="flex flex-col items-center mt-6 w-full gap-3 px-10">
         <Button
+          onClick={() => navigate('/seller/add-product')}
           type="click"
           className=" flex flex-row items-center justify-start gap-2 bg-teal-600 text-white w-full text-xl py-3"
         >
@@ -55,6 +58,7 @@ function Dashboard() {
           Add Products
         </Button>
         <Button
+          onClick={() => navigate('/seller/orders')}
           type="click"
           className=" flex flex-row items-center justify-start gap-2 bg-teal-600 text-white w-full text-xl py-3"
         >
@@ -81,6 +85,7 @@ function Dashboard() {
           View Orders
         </Button>
         <Button
+          onClick={() => navigate('/seller/products')}
           type="click"
           className=" flex flex-row items-center justify-start gap-2 bg-teal-600 text-white w-full text-xl py-3"
         >

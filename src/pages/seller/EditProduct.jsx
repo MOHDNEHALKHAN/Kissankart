@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
-import { Button, SellerFooter, CategorySelector } from "../../components/index";
+import { Button,  CategorySelector } from "../../components/index";
 
 // Mock API for frontend testing
 const api = {
@@ -108,7 +108,27 @@ function EditProduct() {
   };
 
   return (
-    <div className="relative  overflow-y-auto  w-full flex flex-col h-screen bg-amber-50">
+    <div className="relative w-full flex flex-col h-screen bg-amber-50">
+      <div className="flex flex-row  mx-8 my-2">
+        <svg
+          onClick={() => navigate("/seller/products")}
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-left text-gray-700 cursor-pointer"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M5 12l14 0" />
+          <path d="M5 12l4 4" />
+          <path d="M5 12l4 -4" />
+        </svg>
+      </div>
       <form
         onSubmit={handleSubmit}
         className="my-2 w-full px-10 flex flex-col gap-4"
@@ -300,16 +320,13 @@ function EditProduct() {
           </label>
         </div>
         <Button
+          onClick={() => navigate('/seller/products')}
           type="submit"
           className="bg-teal-600 text-white py-2 px-4 rounded-sm"
         >
           Update Product
         </Button>
       </form>
-
-      <div className="w-full fixed bottom-0 z-50">
-        <SellerFooter />
-      </div>
     </div>
   );
 }

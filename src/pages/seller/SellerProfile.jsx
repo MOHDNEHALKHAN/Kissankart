@@ -1,13 +1,16 @@
 import React from "react";
 import { Button, SellerFooter, ProfileOption } from "../../components/index";
+import { useNavigate } from "react-router";
 
 function SellerProfile() {
+  const navigate = useNavigate();
   return (
     <div className="relative bg-amber-50 flex flex-col  h-screen overflow-hidden w-full">
       <div className="1 shadow-xs w-full">
         <div className="flex flex-row justify-between items-center mx-4 gap-4 py-4">
           <h3 className="font-inter font-medium text-lg">Hi! Mohd Nehal Khan</h3>
           <svg
+          onClick={() => navigate('/seller/invoice')}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -21,7 +24,7 @@ function SellerProfile() {
           </svg>
         </div>
         <div className=" shadow-md flex flex-wrap w-full py-2 px-4 gap-4">
-          <Button
+          {/* <Button
             type="click"
             className="flex flex-row font-light items-center justify-start gap-2 bg-teal-600 text-white"
           >
@@ -45,8 +48,9 @@ function SellerProfile() {
               <path d="M16 5.25l-8 4.5" />
             </svg>
             Orders
-          </Button>
+          </Button> */}
           <Button
+          onClick={() => navigate('/seller/products')}
             type="click"
             className="flex flex-row items-center justify-start gap-2 bg-teal-600 text-white"
           >
@@ -70,6 +74,7 @@ function SellerProfile() {
             Product Inventory
           </Button>
           <Button
+            onClick={() => navigate('/seller/help-center')}
             type="click"
             className=" flex flex-row items-center justify-start gap-2 bg-teal-600 text-white"
           >
@@ -313,7 +318,9 @@ function SellerProfile() {
           onClick={() => console.log("Go to Edit Profile")}
         />
       </div>
-      <Button className=" mx-4 my-8 bg-teal-600 text-white">Log Out</Button>
+      <Button 
+      onClick={() => navigate('/login')}
+      className=" mx-4 my-8 bg-teal-600 text-white">Log Out</Button>
 
       <div className="fixed bottom-0 w-full z-50">
         <SellerFooter />
