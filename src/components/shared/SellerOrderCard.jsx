@@ -1,8 +1,10 @@
 import React from 'react'
 import { Button } from '../index'
 import wheat from '../../assets/wheat.jpg'
+import { useNavigate } from 'react-router'
 
 function SellerOrderCard() {
+    const navigate = useNavigate();
 
     const  orderDetails = {
         id: 1,
@@ -14,8 +16,11 @@ function SellerOrderCard() {
         image: wheat,
     }
   return (
-    <div className='bg-white  shadow-sm rounded-lg p-4 cursor-pointer '>
-        <div className=' order-details flex flex-row items-start  gap-4'>
+    <div 
+    className='bg-white  shadow-sm rounded-lg p-4 cursor-pointer '>
+        <div 
+        onClick={() => navigate(`/seller/order-description/${orderDetails.id}`)}
+        className=' order-details flex flex-row items-start  gap-4'>
            <img className="w-20 h-20 rounded-lg" src={orderDetails.image} alt={orderDetails.title} />
            <div className=''>
                <h4 className='text-sm font-semibold text-teal-900'>{orderDetails.title}</h4>
