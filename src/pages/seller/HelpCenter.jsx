@@ -7,7 +7,7 @@ function HelpCenter() {
 
   return (
     <div className="relative bg-amber-50 flex flex-col  h-screen overflow-hidden w-full">
-      <div className="flex flex-row  mx-4 my-2">
+      <div className="flex flex-row  ml-4 mt-4">
         <svg
           onClick={() => navigate("/seller/profile")}
           xmlns="http://www.w3.org/2000/svg"

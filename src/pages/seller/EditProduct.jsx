@@ -109,7 +109,7 @@ function EditProduct() {
 
   return (
     <div className="relative w-full flex flex-col h-screen bg-amber-50">
-      <div className="flex flex-row  mx-8 my-2">
+      <div className="flex flex-row  ml-4 mt-4">
         <svg
           onClick={() => navigate("/seller/products")}
           xmlns="http://www.w3.org/2000/svg"
