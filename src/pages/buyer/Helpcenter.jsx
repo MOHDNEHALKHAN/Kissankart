@@ -2,7 +2,7 @@ import React from "react";
 import { Footer, OrderCard } from "../../components/index";
 import { useNavigate } from "react-router";
 
-function HelpcenterPage() {
+function Helpcenter() {
   const navigate = useNavigate();
 
   return (
@@ -44,4 +44,4 @@ function HelpcenterPage() {
   );
 }
 
-export default HelpcenterPage;
+export default Helpcenter;

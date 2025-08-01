@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router";
-import Cartpage from "./CartPage";
-import CheckoutPage from "./CheckoutPage";
+import Cart from "./Cart";
+import Checkout from "./Checkout";
 import ProductList from "./ProductList";
 import UserProfile from "./UserProfile";
-import WishlistPage from "./WishlistPage";
-import OrderdetailPage from "./OrderdetailPage";
-import OrderPage from "./OrderPage";
+import Wishlist from "./Wishlist";
+import Orderdetail from "./Orderdetail";
+import Order from "./Order";
 import OrderFailed from "./OrderFailed";
-import HelpcenterPage from "./HelpcenterPage"
+import Helpcenter from "./Helpcenter"
 import OrderSuccess from "./OrderSuccess";
 import ProductDetail from "./ProductDetail";
 
@@ -16,13 +16,13 @@ const BuyerRoutes = () => {
     <Routes>
       <Route path="/" element={<ProductList />} />    
       <Route path="/profile" element={<UserProfile />} />
-      <Route path="/cart" element={<Cartpage />} />
-      <Route path="/checkout" element={<CheckoutPage />} />
-      <Route path="/wishlist" element={<WishlistPage />} />
-      <Route path="/order-detail" element={<OrderdetailPage />} />
-      <Route path="/orders" element={<OrderPage />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/wishlist" element={<Wishlist />} />
+      <Route path="/order-detail" element={<Orderdetail />} />
+      <Route path="/orders" element={<Order />} />
       <Route path="/order-failed" element={<OrderFailed />} />
-      <Route path="/help-center" element={<HelpcenterPage />} />
+      <Route path="/help-center" element={<Helpcenter />} />
       <Route path="/order-success" element={<OrderSuccess />} />
        <Route path="/product/:id" element={<ProductDetail />} />
     </Routes>

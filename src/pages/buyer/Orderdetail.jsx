@@ -3,7 +3,7 @@ import { Button } from "../../components";
 import basket from "../../assets/Basket.svg";
 import { useNavigate } from "react-router";
 
-function OrderdetailPage() {
+function Orderdetail() {
   const navigate = useNavigate();
   const orderId = "12345";
   const Address = "123 Main St, Springfield, USA";
@@ -57,4 +57,4 @@ function OrderdetailPage() {
   );
 }
 
-export default OrderdetailPage;
+export default Orderdetail;

@@ -2,7 +2,7 @@ import React from "react";
 import { Footer, Button, CartItem } from "../../components/index";
 import { useNavigate } from "react-router";
 
-function CartPage({ origionalamount = "", discountedamount = "" }) {
+function Cart({ origionalamount = "", discountedamount = "" }) {
   const navigate = useNavigate();
 
   const address = "111, New Delhi , 221342";
@@ -75,4 +75,4 @@ function CartPage({ origionalamount = "", discountedamount = "" }) {
   );
 }
 
-export default CartPage;
+export default Cart;

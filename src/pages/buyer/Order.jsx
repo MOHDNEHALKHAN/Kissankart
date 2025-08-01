@@ -2,7 +2,7 @@ import React from "react";
 import { SearchBar, Button, Footer, OrderCard } from "../../components/index";
 import { useNavigate } from "react-router";
 
-function OrderPage() {
+function Order() {
   const navigate = useNavigate();
   return (
     <div className="relative bg-green-50 flex flex-col  h-screen overflow-hidden w-full">
@@ -65,4 +65,4 @@ function OrderPage() {
   );
 }
 
-export default OrderPage;
+export default Order;

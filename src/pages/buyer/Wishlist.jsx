@@ -2,7 +2,7 @@ import React from "react";
 import { WishlistCard } from "../../components/index";
 import { useNavigate } from "react-router";
 
-function WishlistPage() {
+function Wishlist() {
   const navigate = useNavigate();
 
   return (
@@ -40,4 +40,4 @@ function WishlistPage() {
   );
 }
 
-export default WishlistPage;
+export default Wishlist;
