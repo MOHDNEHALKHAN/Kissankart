@@ -26,9 +26,9 @@ const CheckoutPage = () => {
 
   return (
     <div className="relative bg-green-50 min-h-screen p-4 space-y-4 ">
-      {/* Address */}
-      <div className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
-        <div className="flex items-center gap-2">
+          {/* Address */}
+          <div className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
+            <div className="flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

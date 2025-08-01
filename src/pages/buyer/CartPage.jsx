@@ -8,7 +8,7 @@ function CartPage({ origionalamount = "", discountedamount = "" }) {
   const address = "111, New Delhi , 221342";
   return (
     <div className="relative bg-green-50 flex flex-col  min-h-screen overflow-y-auto w-full">
-      <div className="flex flex-row mt-4 gap-2 mx-4 ">
+      <div className="flex flex-row my-4 gap-2 mx-4 ">
         <svg
           onClick={() => navigate("/buyer/")}
           xmlns="http://www.w3.org/2000/svg"
@@ -29,29 +29,32 @@ function CartPage({ origionalamount = "", discountedamount = "" }) {
         </svg>
         <h3 className="font-inter font-semibold">MY CART</h3>
       </div>
-      <div className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm mx-4 mt-2">
-        <div className="flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 text-green-700"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"
-            />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-          <span>{address}</span>
-        </div>
-        <button className="text-blue-600 text-sm font-medium">Edit</button>
-      </div>
-      <div className="flex flex-col gap-4  my-5 pb-36 shadow-sm rounded-lg">
+      <div className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm mx-4">
+                  <div className="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="icon icon-tabler icons-tabler-outline icon-tabler-map-pin text-teal-600"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                  <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                </svg>
+                <span>{address}</span>
+              </div>
+              <Button className="text-blue-600 text-sm font-medium">Edit</Button>
+            </div>
+      <div className="flex flex-col gap-4  my-5 pb-36">
         <CartItem image="https://images.unsplash.com/photo-1511735643442-503bb3bd348a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y3JvcHN8ZW58MHx8MHx8fDA%3D" />
+      <CartItem image="https://images.unsplash.com/photo-1511735643442-503bb3bd348a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y3JvcHN8ZW58MHx8MHx8fDA%3D" />
+      <CartItem image="https://images.unsplash.com/photo-1511735643442-503bb3bd348a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y3JvcHN8ZW58MHx8MHx8fDA%3D" />
       </div>
       <div className="fixed bottom-14 w-full flex flex-row gap-4 my-5 bg-white py-4 px-8 items-center justify-between shadow-sm">
         <span>

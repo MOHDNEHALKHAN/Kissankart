@@ -11,7 +11,7 @@ function Login() {
       navigate('/signup');
    }
    const handleLogin = () => {
-      navigate('/seller/');
+      navigate('/buyer/');
    }
 
   return (

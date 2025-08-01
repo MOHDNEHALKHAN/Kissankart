@@ -1,15 +1,12 @@
 import React from "react";
-import {
-  SearchBar,
-  Carousel,
-  Footer,
-  ProductCard,
-} from "../../components/index";
+import { SearchBar, Carousel, Footer, ProductCard } from "../../components/index";
+import wheat from '../../assets/wheat.jpg';
+import corn from '../../assets/corn.jpg';
 
 function ProductList() {
   return (
-    <div className=" relative bg-green-50  justify-center items-center h-screen  overflow-hidden">
-      <div className="flex flex-row justify-evenly items-center mx-7 gap-4">
+    <div className=" relative bg-green-50  justify-center items-center h-screen overflow-hidden">
+      <div className="flex flex-row justify-evenly items-center mx-4 gap-4">
         <SearchBar placeholder="Search for Products" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -27,8 +24,8 @@ function ProductList() {
 
       <Carousel className="w-full" />
       <div className="grid grid-cols-2 gap-4 mt-6 px-4">
-        <ProductCard image="/wheat.jpg" name="Wheat" price="200" />
-        <ProductCard image="/corn.jpg" name="Corn" price="150" />
+        <ProductCard image={wheat} name="Wheat" price="200" />
+        <ProductCard image={corn} name="Corn" price="150" />
         {/* More cards */}
       </div>
 

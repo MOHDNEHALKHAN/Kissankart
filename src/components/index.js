@@ -29,5 +29,5 @@ export {
     SellerOrderCard,
     CategorySelector,
     GoodsCard,
-    SellerCarousel
+    SellerCarousel,
 }

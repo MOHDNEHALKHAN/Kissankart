@@ -6,7 +6,7 @@ function UserProfile() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative bg-amber-50 flex flex-col  h-screen overflow-hidden w-full">
+    <div className="relative bg-green-50 flex flex-col  h-screen overflow-hidden w-full">
       <div className="1 shadow-xs w-full">
         <div className="flex flex-row justify-between items-center mx-4 gap-4 py-4">
           <h3 className="font-inter font-medium text-lg">

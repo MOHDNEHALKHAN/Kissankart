@@ -1,4 +1,4 @@
-import React from "react";
+import {useState}  from "react";
 
 export default function CartItem({
   image = "",
@@ -12,8 +12,13 @@ export default function CartItem({
   onWishlist,
   onBuy,
 }) {
+const [qty, setQty] = useState(quantity);
+  const handleQtyChange = (e) => {
+    setQty(e.target.value);
+  }
+
   return (
-    <div className="bg-white  p-3 space-y-2 mx-4">
+    <div className="bg-white  p-3 space-y-2 mx-4 shadow-md rounded-lg font-inter">
       {/* Product Row */}
       <div className="flex gap-6 flex-row items-center mx-5">
         <img src={image} alt="product" className="w-18 h-20 object-cover" />
@@ -45,8 +50,9 @@ export default function CartItem({
         </label>
         <select
           id="qty"
-          value={quantity}
-          className="border rounded px-2 py-1 text-sm"
+          value={qty}
+          onChange={handleQtyChange}
+          className=" rounded px-2 py-1 text-sm"
         >
           {[1, 2, 3, 4, 5].map((q) => (
             <option key={q} value={q}>
@@ -69,10 +75,10 @@ export default function CartItem({
 
       {/* Buttons Row */}
       <div className="grid grid-cols-2 divide-x border-t text-sm text-center mt-2">
-        <button className="py-2 cursor-pointer" >
+        <button className="py-2 cursor-pointer font-inter text-sm font-medium" >
           Remove
         </button>
-        <button className="py-2 cursor-pointer" o>
+        <button className="py-2 cursor-pointer font-inter text-sm font-medium">
           Add to wishlist
         </button>
       </div>
