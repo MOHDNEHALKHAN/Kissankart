@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { Button, Input } from "../../components/index";
 import logo from "../../assets/FarmerLogo.svg";
+import { useNavigate } from "react-router";
 
 function Signup() {
   const [visiblePassword, setvisiblePassword] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSignup = () => {
+    navigate('/login');
+  };
 
   return (
     <div className="relative bg-green-50 flex flex-col justify-center items-center h-screen gap-10 overflow-hidden">
@@ -86,7 +92,7 @@ function Signup() {
           </div>
         </div>
 
-        <Button type="submit" className="w-full bg-teal-600 text-white">
+        <Button onClick={handleSignup} type="submit" className="w-full bg-teal-600 text-white">
           Sign Up
         </Button>
       </form>

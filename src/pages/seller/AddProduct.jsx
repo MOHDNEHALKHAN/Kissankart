@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { Button, SellerFooter , CategorySelector} from "../../components/index";
+import { Button, SellerFooter, CategorySelector } from "../../components/index";
+import { useNavigate } from "react-router";
 
 function AddProduct() {
   const [images, setImages] = useState([]);
+  const navigate = useNavigate();
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -15,19 +17,40 @@ function AddProduct() {
     );
   };
 
-  const [selectedSubcategory, setSelectedSubcategory] = useState('');
+  const [selectedSubcategory, setSelectedSubcategory] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Use selectedSubcategory in your payload
-    console.log('Chosen subcategory:', selectedSubcategory);
+    console.log("Chosen subcategory:", selectedSubcategory);
   };
 
   return (
     <div className="flex flex-col  h-screen bg-amber-50">
-      <form 
-      onSubmit={handleSubmit}
-      className="my-5 w-full px-10 flex flex-col gap-3">
+        <div className="flex flex-row  mx-4 my-2">
+        <svg
+          onClick={() => navigate("/seller/")}
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-left text-gray-700 cursor-pointer"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M5 12l14 0" />
+          <path d="M5 12l4 4" />
+          <path d="M5 12l4 -4" />
+        </svg>
+      </div>
+      <form
+        onSubmit={handleSubmit}
+        className="my-5 w-full px-10 flex flex-col gap-3"
+      >
         <div className="">
           <label className="block text-sm font-medium text-black mb-1 ">
             Title
@@ -67,10 +90,9 @@ function AddProduct() {
           </div>
         </div>
         <div className="">
-          
-          <CategorySelector 
-          value={selectedSubcategory}
-          onChange={(subcat) => setSelectedSubcategory(subcat)}
+          <CategorySelector
+            value={selectedSubcategory}
+            onChange={(subcat) => setSelectedSubcategory(subcat)}
           />
           {/* <select
             id="Category"
@@ -82,7 +104,6 @@ function AddProduct() {
             <option value="FR">France</option>
             <option value="DE">Germany</option>
           </select> */}
-
         </div>
 
         <div className="flex items-center justify-center w-full ">
@@ -148,15 +169,14 @@ function AddProduct() {
           </label>
         </div>
         <Button
+          onClick={() => navigate('/seller/')}
           type="submit"
           className="bg-teal-600 text-white py-2 px-4 rounded-sm items-center justify-center"
         >
           Add Product
         </Button>
       </form>
-      <div className="w-full fixed  bottom-0 z-50">
-        <SellerFooter />
-      </div>
+      
     </div>
   );
 }

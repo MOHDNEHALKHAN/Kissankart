@@ -9,11 +9,12 @@ import OrderPage from "./OrderPage";
 import OrderFailed from "./OrderFailed";
 import HelpcenterPage from "./HelpcenterPage"
 import OrderSuccess from "./OrderSuccess";
+import ProductDetail from "./ProductDetail";
 
 const BuyerRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<ProductList />} />
+      <Route path="/" element={<ProductList />} />    
       <Route path="/profile" element={<UserProfile />} />
       <Route path="/cart" element={<Cartpage />} />
       <Route path="/checkout" element={<CheckoutPage />} />
@@ -23,6 +24,7 @@ const BuyerRoutes = () => {
       <Route path="/order-failed" element={<OrderFailed />} />
       <Route path="/help-center" element={<HelpcenterPage />} />
       <Route path="/order-success" element={<OrderSuccess />} />
+       <Route path="/product/:id" element={<ProductDetail />} />
     </Routes>
   );
 };

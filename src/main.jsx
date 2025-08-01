@@ -1,18 +1,61 @@
-// src/main.tsx
-import React from "react"
-import ReactDOM from "react-dom/client"
-import App from "./App"
-import { BrowserRouter } from "react-router"
-// import { Provider } from "react-redux"
-// import { store } from "./store/store"
-import './App.css'
+//main.jsx
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './App.css';
+import { Provider } from 'react-redux';
+import store from './store/store.js';
+import { RouterProvider, createBrowserRouter } from 'react-router';
+
+import BuyerRoutes from './pages/buyer/index.jsx';   
+import SellerRoutes from './pages/seller/index.jsx'; 
+import StartPage from './pages/home/StartPage.jsx';
+import Login from './pages/auth/Login';
+import Signup from './pages/auth/Signup';
+import AuthLayout from './layout/AuthLayout.jsx';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: '/',
+        element: <StartPage />
+      },
+      {
+        path: '/login',
+        element: (
+          <AuthLayout authentication={false}>
+            <Login />
+          </AuthLayout>
+        )
+      },
+      {
+        path: '/signup',
+        element: (
+          <AuthLayout authentication={false}>
+            <Signup />
+          </AuthLayout>
+        )
+      },
+      {
+        path: '/buyer/*',
+        element: <BuyerRoutes />
+      },
+      {
+        path: '/seller/*',
+        element: <SellerRoutes />
+      }
+    ]
+  }
+]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    {/* </Provider> */}
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
-)
+);

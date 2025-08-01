@@ -1,11 +1,15 @@
 import React from "react";
 import { Footer, OrderCard } from "../../components/index";
+import { useNavigate } from "react-router";
 
-function Helpcenter() {
+function HelpcenterPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="relative bg-green-50 flex flex-col  h-screen w-full">
       <div className="flex flex-row mt-4 gap-2 mx-4 ">
         <svg
+          onClick={() => navigate("/buyer/profile")}
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -36,11 +40,8 @@ function Helpcenter() {
         <OrderCard />
         <OrderCard />
       </div>
-      <div className="fixed bottom-0 w-full z-50">
-        <Footer />
-      </div>
     </div>
   );
 }
 
-export default Helpcenter;
+export default HelpcenterPage;

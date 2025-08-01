@@ -1,12 +1,16 @@
-import React from 'react'
-import { WishlistCard } from '../../components/index';
+import React from "react";
+import { WishlistCard } from "../../components/index";
+import { useNavigate } from "react-router";
 
-function Wishlist() {
+function WishlistPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="relative bg-green-50 flex flex-col  h-screen overflow-hidden w-full">
       <div className="flex flex-col">
         <div className="flex flex-row mt-4 gap-2 mx-4">
           <svg
+            onClick={() => navigate("/buyer/profile")}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -26,14 +30,14 @@ function Wishlist() {
           <h3 className="font-inter font-semibold">MY WISHLIST</h3>
         </div>
         <div className="AllWishlists flex flex-wrap flex-row gap-2 mx-2 my-6 justify-center">
-<WishlistCard/>
-<WishlistCard/>
-<WishlistCard/>
-<WishlistCard/>
+          <WishlistCard />
+          <WishlistCard />
+          <WishlistCard />
+          <WishlistCard />
         </div>
       </div>
     </div>
   );
 }
 
-export default Wishlist;
+export default WishlistPage;

@@ -1,9 +1,12 @@
 import React from "react";
 import { Button, Footer, ProfileOption } from "../../components/index";
+import { useNavigate } from "react-router";
 
 function UserProfile() {
+  const navigate = useNavigate();
+
   return (
-    <div className="relative bg-amber-50 flex flex-col  h-screen overflow-hidden w-full">
+    <div className="relative bg-green-50 flex flex-col  h-screen overflow-hidden w-full">
       <div className="1 shadow-xs w-full">
         <div className="flex flex-row justify-between items-center mx-4 gap-4 py-4">
           <h3 className="font-inter font-medium text-lg">
@@ -24,6 +27,7 @@ function UserProfile() {
         </div>
         <div className=" shadow-md flex flex-wrap w-full py-2 px-4 gap-4">
           <Button
+            onClick={() => navigate("/buyer/orders")}
             type="click"
             className="flex flex-row font-light items-center justify-start gap-2 bg-teal-600 text-white"
           >
@@ -49,6 +53,7 @@ function UserProfile() {
             Orders
           </Button>
           <Button
+            onClick={() => navigate("/buyer/wishlist")}
             type="click"
             className="flex flex-row items-center justify-start gap-2 bg-teal-600 text-white"
           >
@@ -70,6 +75,7 @@ function UserProfile() {
             Wishlist
           </Button>
           <Button
+            onClick={() => navigate("/buyer/help-center")}
             type="click"
             className=" flex flex-row items-center justify-start gap-2 bg-teal-600 text-white"
           >
@@ -388,8 +394,12 @@ function UserProfile() {
           onClick={() => console.log("Go to Edit Profile")}
         />
       </div>
-      <Button className=" mx-4 my-8 bg-teal-600 text-white">Log Out</Button>
-
+      <Button
+        onClick={() => navigate("/login")}
+        className=" mx-4 my-8 bg-teal-600 text-white"
+      >
+        Log Out
+      </Button>
       <div className="fixed bottom-0 w-full z-50">
         <Footer />
       </div>
