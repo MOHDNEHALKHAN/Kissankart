@@ -1,5 +1,3 @@
-//main.jsx
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
@@ -8,8 +6,8 @@ import { Provider } from 'react-redux';
 import store from './store/store.js';
 import { RouterProvider, createBrowserRouter } from 'react-router';
 
-import BuyerRoutes from './pages/buyer/index.jsx';   
-import SellerRoutes from './pages/seller/index.jsx'; 
+import BuyerRoutes from './pages/buyer/Index.jsx';   
+import SellerRoutes from './pages/seller/Index.jsx'; 
 import StartPage from './pages/home/StartPage.jsx';
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
