@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authSlice from "../features/auth/authSlice";
-import cartSlice from "../features/cart/cartSlice";
-import productSlice from "../features/products/productSlice";
-import orderSlice from "../features/orders/orderSlice"; 
-import wishlistSlice from "../features/wishlist/wishlistSlice"; 
+import authSlice from "../functions/auth/authSlice";
+import cartSlice from "../functions/cart/cartSlice";
+import productSlice from "../functions/products/productSlice";
+import orderSlice from "../functions/orders/orderSlice"; 
+import wishlistSlice from "../functions/wishlist/wishlistSlice"; 
 
 const store = configureStore({
   reducer: {

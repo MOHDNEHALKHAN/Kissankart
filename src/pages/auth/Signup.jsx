@@ -2,26 +2,55 @@ import React, { useState } from "react";
 import { Button, Input } from "../../components/index";
 import logo from "../../assets/FarmerLogo.svg";
 import { useNavigate } from "react-router";
+import authService from '../../services/appwrite/auth'
+import {login} from '../../functions/auth/authSlice'
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
 
 function Signup() {
   const [visiblePassword, setvisiblePassword] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [error, setError] = useState("");
+  const {register , handleSubmit} = useForm();
 
-  const handleSignup = () => {
-    navigate('/login');
-  };
-
+  const create = async(data) =>{
+    setError("");
+    try {
+      const userData = await authService.createAccount(data)
+      if(userData) dispatch(login(userData))
+        navigate("/login");
+    } catch (error) {
+      setError(error.message);
+    }
+  }
   return (
     <div className="relative bg-green-50 flex flex-col justify-center items-center h-screen gap-10 overflow-hidden">
       <img src={logo} alt="farmer logo" />
-      <form action="" className="flex flex-col gap-6 mx-10">
-        <Input label="Name" type="name" placeholder="Full Name" />
-        <Input label="Email" type="email" placeholder="Email" />
+        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+      <form 
+        onSubmit={handleSubmit(create)}
+        className="flex flex-col gap-6 mx-10">
+        <Input 
+          label="Name" type="name" placeholder="Full Name" 
+          {...register("name", {required : true})}
+        />
+        <Input 
+          label="Email" type="email" placeholder="Email" 
+          {...register("email", {
+            required: true,
+            validate: {
+              matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+              "Email address must be a valid address",
+            }
+          })}
+        />
         <div className="w-full relative">
           <Input
             label="Password"
             type={visiblePassword ? "text" : "password"}
             placeholder="Password"
+            {...register("password", { required: true })}
           />
           <span
             className="absolute top-[38px] right-3 cursor-pointer text-teal-600"
@@ -72,27 +101,29 @@ function Signup() {
           </p>
           <div className="flex items-center gap-6 px-1">
             <label className="flex items-center gap-1 text-blue-600 font-medium">
-              <input
+              <Input
                 type="radio"
                 name="role"
                 value="customer"
                 className="accent-gray-400 cursor-pointer"
+                {...register("label", { required: true })}
               />
               Customer
             </label>
             <label className="flex items-center gap-1 text-blue-600 font-medium">
-              <input
+              <Input
                 type="radio"
                 name="role"
                 value="seller"
                 className="accent-gray-400 cursor-pointer"
+                {...register("label", { required: true })}
               />
               Seller
             </label>
           </div>
         </div>
 
-        <Button onClick={handleSignup} type="submit" className="w-full bg-teal-600 text-white">
+        <Button  type="submit" className="w-full bg-teal-600 text-white">
           Sign Up
         </Button>
       </form>

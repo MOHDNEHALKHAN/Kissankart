@@ -1,7 +1,19 @@
 import React from "react";
 import { Button } from "../../components/index";
+import { useNavigate } from "react-router";
 
 const Checkout = () => {
+  const navigate = useNavigate();
+
+  // Navigate to OrderSuccess or OrderFail page based on random payment result
+  const handlePlaceOrder = () => {
+    const isPaymentSuccess = Math.random() > 0.5;
+    if (isPaymentSuccess) {
+      navigate("/buyer/order-success");
+    } else {
+      navigate("/buyer/order-failed");
+    }
+  };
   const address = "xýx";
   const product = {
     title: "Natural Almonds grown in Afg",
@@ -119,7 +131,10 @@ const Checkout = () => {
 
       {/* Place Order Button */}
       <div className="mt-4">
-        <Button className="bg-teal-600 text-white w-full py-2 rounded-lg">
+        <Button
+          onClick={handlePlaceOrder}
+          className="bg-teal-600 text-white w-full py-2 rounded-lg"
+        >
           Place Order
         </Button>
       </div>
