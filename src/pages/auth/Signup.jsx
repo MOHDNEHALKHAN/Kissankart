@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Button, Input } from "../../components/index";
 import logo from "../../assets/FarmerLogo.svg";
 import { useNavigate } from "react-router";
@@ -21,13 +21,17 @@ function Signup() {
       if(userData) dispatch(login(userData))
         navigate("/login");
     } catch (error) {
-      setError(error.message);
+      if (error.code === 400) {
+        setError("Password must be at least 8 characters long.");
+      } else {
+        setError("Email already exists.");
+      }
     }
   }
   return (
     <div className="relative bg-green-50 flex flex-col justify-center items-center h-screen gap-10 overflow-hidden">
       <img src={logo} alt="farmer logo" />
-        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+        
       <form 
         onSubmit={handleSubmit(create)}
         className="flex flex-col gap-6 mx-10">
@@ -123,10 +127,17 @@ function Signup() {
           </div>
         </div>
 
+{error && <p className="text-red-600 font-inter text-center">{error}</p>}
         <Button  type="submit" className="w-full bg-teal-600 text-white">
           Sign Up
         </Button>
       </form>
+      <p className="font-inter font-medium text-teal-600">
+        Already have an account?{" "}
+        <a onClick={() => navigate('/login')} className="font-inter font-semibold text-blue-600 cursor-pointer">
+          Log In
+        </a>
+      </p>
     </div>
   );
 }

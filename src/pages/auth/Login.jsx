@@ -1,33 +1,59 @@
-import React ,{useState} from "react";
+import {useState} from "react";
 import { Button, Input } from "../../components/index";
 import logo from "../../assets/FarmerLogo.svg";
 import { useNavigate } from "react-router";
-
+import authService from "../../services/appwrite/auth";
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import {login as authLogin} from '../../functions/auth/authSlice';
 function Login() {
 
    const [visiblePassword, setvisiblePassword] = useState(false);
-   const navigate = useNavigate();
-   const handleSignup = () => {
-      navigate('/signup');
-   }
-   const handleLogin = () => {
-      navigate('/buyer/');
-   }
+   const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const {register, handleSubmit} = useForm()
+    const [error, setError] = useState("")
+
+const login = async(data) => {
+    setError("");
+    try {
+        const session = await authService.login(data);
+        if (session) {
+           const userData = await authService.getCurrentUser()
+            if(userData) dispatch(authLogin(userData));
+        }
+    } catch (error) {
+        if (error.code === 401) {
+            setError("Invalid credentials. Please try again.");
+        } else {
+            setError("Something went wrong. Please try again later.");
+        }
+    }
+}
 
   return (
     <div className="relative bg-green-50 flex flex-col justify-center items-center h-screen gap-20 overflow-hidden">
       <img src={logo} alt="farmer logo" />
-      <form action="" className="flex flex-col gap-7 mx-10">
+      
+      <form onSubmit={handleSubmit(login)} className="flex flex-col gap-7 mx-10">
         <Input
           label="Email"
           type="email"
           placeholder="Enter your email"
+          {...register("email", {
+                    required: true,
+                    validate: {
+                        matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                        "Email address must be a valid address",
+                    }
+                })}
         />
         <div className="w-full relative">
           <Input
             label="Password"
             type={visiblePassword ? "text" : "password"}
             placeholder="Password"
+            {...register("password", { required: true })}
           />
           <span
             className="absolute top-[38px] right-3 cursor-pointer text-teal-600"
@@ -71,20 +97,21 @@ function Login() {
             )}
           </span>
         </div>
+        {error && <p className="text-red-600 font-inter text-center">{error}</p>}
         <a
           href=""
           className="font-inter font-semibold text-center text-blue-600 my-1"
         >
           Forgot your Password?
         </a>
-        <Button onClick={handleLogin} type="submit" className="w-full bg-teal-600 text-white">
+        <Button type="submit" className="w-full bg-teal-600 text-white">
           Log In
         </Button>
       </form>
 
       <p className="font-inter font-medium text-teal-600">
         Don’t have any account?{" "}
-        <a onClick={handleSignup} className="font-inter font-semibold text-blue-600 cursor-pointer">
+        <a onClick={() => navigate('/signup')} className="font-inter font-semibold text-blue-600 cursor-pointer">
           Sign Up
         </a>
       </p>
