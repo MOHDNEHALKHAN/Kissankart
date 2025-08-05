@@ -19,6 +19,7 @@ function Signup() {
     try {
       const userData = await authService.createAccount(data)
       if(userData) dispatch(login(userData))
+        await authService.sendVerification();  
         navigate("/login");
     } catch (error) {
       if (error.code === 400) {

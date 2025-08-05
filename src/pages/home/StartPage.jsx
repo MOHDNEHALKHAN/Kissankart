@@ -1,4 +1,3 @@
-import React from 'react';
 import grass from "../../assets/Grass.png";
 import {Link}  from 'react-router';
 

@@ -36,6 +36,15 @@ export class AuthService {
         }
     }
 
+    async sendVerification() {
+    try {
+        return await this.account.createVerification('https://kissankart.appwrite.network/verify');
+    } catch (error) {
+        console.log("Appwrite service :: sendVerification :: error", error);
+        throw error;
+    }
+}
+
     async getCurrentUser() {
         try {
             return await this.account.get();

@@ -11,6 +11,7 @@ import SellerRoutes from "./pages/seller/Index.jsx";
 import StartPage from "./pages/home/StartPage.jsx";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
+import Verify from './pages/auth/Verify';
 import AuthLayout from "./layout/AuthLayout.jsx";
 
 const router = createBrowserRouter([
@@ -35,6 +36,14 @@ const router = createBrowserRouter([
         element: (
           <AuthLayout authentication={false}>
             <Signup />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/verify",
+        element: (
+          <AuthLayout authentication={false}>
+            <Verify />
           </AuthLayout>
         ),
       },
