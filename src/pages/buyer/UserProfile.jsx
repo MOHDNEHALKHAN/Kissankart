@@ -1,13 +1,22 @@
-import React from "react";
+import {useEffect, useState} from "react";
 import { Button, Footer, ProfileOption } from "../../components/index";
 import { useNavigate } from "react-router";
-import { useSelector , useDispatch} from "react-redux";
+import { useDispatch} from "react-redux";
 import authService from "../../services/appwrite/auth";
 import { logout } from "../../functions/auth/authSlice";
 
 function UserProfile() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    authService
+      .getCurrentUser()
+      .then((userData) => {
+        if (userData) setUser(userData);
+      })
+  }, []);
 
   const handleLogout = () => {
     authService.logout().then(() => {
@@ -19,15 +28,14 @@ function UserProfile() {
       });
   };
 
-  const user = useSelector((state) => state.auth.userData);
-  const userName = user?.name ?? "User"; 
+
 
   return (
     <div className="relative bg-green-50 flex flex-col  h-screen overflow-hidden w-full">
       <div className="1 shadow-xs w-full">
         <div className="flex flex-row justify-between items-center mx-4 gap-4 py-4">
           <h3 className="font-inter font-medium text-lg">
-            Hi! {userName}
+            Hi! {user?.name }
           </h3>
           <svg
             xmlns="http://www.w3.org/2000/svg"

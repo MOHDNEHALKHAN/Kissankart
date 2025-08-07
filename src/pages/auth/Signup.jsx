@@ -108,17 +108,17 @@ function Signup() {
             <label className="flex items-center gap-1 text-blue-600 font-medium">
               <Input
                 type="radio"
-                name="role"
-                value="customer"
+                name="label"
+                value="buyer"
                 className="accent-gray-400 cursor-pointer"
                 {...register("label", { required: true })}
               />
-              Customer
+              Buyer
             </label>
             <label className="flex items-center gap-1 text-blue-600 font-medium">
               <Input
                 type="radio"
-                name="role"
+                name="label"
                 value="seller"
                 className="accent-gray-400 cursor-pointer"
                 {...register("label", { required: true })}

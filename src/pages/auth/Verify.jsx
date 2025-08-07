@@ -15,7 +15,6 @@ function Verify() {
       authService.account.updateVerification(userId, secret)
         .then(() => {
           setMessage("Email verified successfully!");
-          setTimeout(() => navigate("/login"), 3000);
         })
         .catch(() => {
           setMessage("Verification failed or link expired.");
@@ -26,7 +25,7 @@ function Verify() {
   }, [searchParams, navigate]);
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen bg-amber-50">
       <h1 className="text-xl font-semibold text-teal-600">{message}</h1>
     </div>
   );
