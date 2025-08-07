@@ -19,16 +19,19 @@ function Login() {
       const session = await authService.login(data);
       if (session) {
         const userData = await authService.getCurrentUser();
-        if (userData) {dispatch(authLogin(userData));
-          const label = userData.labels?.[0];
-          if (label === "buyer") {
-            navigate("/buyer");
-          }
-          else if (label === "seller") {
-            navigate("/seller");
-          }
+        if (userData) {
+        dispatch(authLogin(userData));
+
+        const label = userData.labels?.[0];
+        if (label === "buyer") {
+          navigate("/buyer"); 
+        } else if (label === "seller") {
+          navigate("/seller");
+        } else {
+          navigate("/"); 
         }
       }
+    }
     } catch (error) {
       if (error.code === 401) {
         setError("Invalid credentials. Please try again.");

@@ -1,9 +1,24 @@
 import React from "react";
 import { Button, SellerFooter, ProfileOption } from "../../components/index";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import {logout} from "../../functions/auth/authSlice"
+import authService from "../../services/appwrite/auth";
 
 function SellerProfile() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const logoutHandler = () => {
+    authService.logout().then(() => {
+        dispatch(logout());
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error("Logout failed:", error);
+      });
+  };
+
   return (
     <div className="relative bg-amber-50 flex flex-col  h-screen overflow-hidden w-full">
       <div className="1 shadow-xs w-full">
@@ -318,9 +333,12 @@ function SellerProfile() {
           onClick={() => console.log("Go to Edit Profile")}
         />
       </div>
-      <Button 
-      onClick={() => navigate('/login')}
-      className=" mx-4 my-8 bg-teal-600 text-white">Log Out</Button>
+      <Button
+        onClick={logoutHandler}
+        className=" mx-4 my-8 bg-teal-600 text-white"
+      >
+        Log Out
+      </Button>
 
       <div className="fixed bottom-0 w-full z-50">
         <SellerFooter />
