@@ -1,28 +1,76 @@
 import { useState } from "react";
-import { Button, SellerFooter, CategorySelector } from "../../components/index";
+import { Button, CategorySelector } from "../../components/index";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import {useForm} from "react-hook-form";
+import authService from "../../services/appwrite/auth";
+import productService from "../../services/appwrite/products";
+import {addproduct} from "../../functions/products/productSlice";
 
 function AddProduct() {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState([]);  
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [error, setError] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const { register , handleSubmit, setValue, formState:{errors} , trigger} = useForm();
+
+
+  const handleProduct = async (data) => {
+    setError("");
+    try {
+      if (!selectedCategory) {
+        setError("Please select a category.");
+        return;
+      }
+
+      const uploadResults = await Promise.all(
+        images.map((image) => productService.uploadImage(image))
+      );
+
+      const imageIds = uploadResults.map((file) => file.$id);
+
+      const currentUser = await authService.getCurrentUser();
+      if(!currentUser){
+        setError("You must be logged in to add a product.");
+        return;
+      }
+
+      const productData ={
+        title : data.title?.trim(),
+        description : data.description?.trim(),
+        price : Number.parseFloat(data.price),
+        quantity : Number.parseInt(data.quantity, 10),
+        category : selectedCategory,
+        imageIds,
+        seller_id : currentUser.$id,
+        created_at : new Date().toISOString()
+      }
+    const createProduct = await productService.createProduct(productData);
+
+    if(createProduct){
+      dispatch(addproduct(createProduct));
+      navigate("/seller/");
+    }
+
+    } catch (error) {
+      console.error("Product add error:", error);
+      setError("Something went wrong. Please try again.");
+    }
+  }
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setImages(files);
+    setValue("images", files, { shouldValidate: true });
+    trigger("images");
   };
 
   const handleRemoveImage = (indexToRemove) => {
-    setImages((prevImages) =>
-      prevImages.filter((_, index) => index !== indexToRemove)
-    );
-  };
-
-  const [selectedSubcategory, setSelectedSubcategory] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Use selectedSubcategory in your payload
-    console.log("Chosen subcategory:", selectedSubcategory);
+    const newImages = images.filter((_, index) => index !== indexToRemove);
+    setImages(newImages);
+    setValue("images", newImages, { shouldValidate: true });
+    trigger("images");
   };
 
   return (
@@ -47,8 +95,13 @@ function AddProduct() {
           <path d="M5 12l4 -4" />
         </svg>
       </div>
+      {error && (
+        <div className="bg-red-100 text-red-700 p-4 rounded-md mx-4 mb-2">
+          {error}
+        </div>
+      )}
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(handleProduct)}
         className="my-5 w-full px-10 flex flex-col gap-3"
       >
         <div className="">
@@ -57,6 +110,8 @@ function AddProduct() {
           </label>
           <input
             type="text"
+            placeholder="Product Title"
+            {...register("title",{required : true})}
             className="mt-1 block w-full border border-gray-300 rounded-md p-2"
           />
         </div>
@@ -65,6 +120,9 @@ function AddProduct() {
             Description
           </label>
           <textarea
+          type="text"
+            placeholder="Product Description"
+            {...register("description",{required : true})}
             className="mt-1 block w-full border border-gray-300 rounded-md p-2"
             rows="4"
           ></textarea>
@@ -76,6 +134,8 @@ function AddProduct() {
             </label>
             <input
               type="number"
+              placeholder="Price"
+              {...register("price",{required : true})}
               className="mt-1 block w-full border border-gray-300 rounded-md p-2"
             />
           </div>
@@ -85,25 +145,17 @@ function AddProduct() {
             </label>
             <input
               type="number"
+              placeholder="Quantity"
+              {...register("quantity",{required : true})}
               className="mt-1 block w-full border border-gray-300 rounded-md p-2"
             />
           </div>
         </div>
         <div className="">
           <CategorySelector
-            value={selectedSubcategory}
-            onChange={(subcat) => setSelectedSubcategory(subcat)}
+            value={selectedCategory}
+            onChange={setSelectedCategory}
           />
-          {/* <select
-            id="Category"
-            className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-600 focus:border-teal-600 block w-full p-2.5"
-          >
-            <option value="selected"></option>
-            <option value="US">United States</option>
-            <option value="CA">Canada</option>
-            <option value="FR">France</option>
-            <option value="DE">Germany</option>
-          </select> */}
         </div>
 
         <div className="flex items-center justify-center w-full ">
@@ -164,12 +216,18 @@ function AddProduct() {
               type="file"
               className="hidden"
               multiple
+              accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"
+              {...register("images", {
+                validate: (files) =>(files && files.length > 0) || "Please upload at least one image"
+              })}
               onChange={handleImageChange}
             />
           </label>
         </div>
+        {errors.images && (
+          <span className="text-red-500 text-sm">{errors.images.message}</span>
+        )}
         <Button
-          onClick={() => navigate('/seller/')}
           type="submit"
           className="bg-teal-600 text-white py-2 px-4 rounded-sm items-center justify-center"
         >

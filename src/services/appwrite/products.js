@@ -16,15 +16,14 @@ export class ProductService {
     }
 
     //Create a new Product by a seller
-    async createProduct({ title, description, price, quantity, category, image, seller_id}) {
+    async createProduct({ title, description, price, quantity, category, imageIds, seller_id, created_at}) {
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.productAppwriteCollectionId,
                 ID.unique(),
-                { title, description, price, quantity, category, image, seller_id}
+                { title, description, price, quantity, category, imageIds, seller_id, created_at }
             );
-
         } catch (error) {
             console.error("Error creating product:", error);
             return null;
@@ -74,15 +73,15 @@ export class ProductService {
     }
 
     //Update a product by its ID
-    async updateProduct(productId ,{title, description, price, quantity, category, image, seller_id }) {
+    async updateProduct(productId ,{title, description, price, quantity, category, imageIds, seller_id }) {
         try {
+            
             return await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
                 conf.productAppwriteCollectionId,
                 productId,
-                { title, description, price, quantity, category, image, seller_id }
+                { title, description, price, quantity, category, imageIds, seller_id }
             );
-
         } catch (error) {
             console.error("Error updating product:", error);
             return null;
