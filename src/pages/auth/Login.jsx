@@ -6,6 +6,7 @@ import authService from "../../services/appwrite/auth";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { login as authLogin } from "../../functions/auth/authSlice";
+
 function Login() {
   const [visiblePassword, setvisiblePassword] = useState(false);
   const navigate = useNavigate();
@@ -16,30 +17,21 @@ function Login() {
   const login = async (data) => {
     setError("");
     try {
-      const session = await authService.login(data);
-      if (session) {
-        const userData = await authService.getCurrentUser();
-        if (userData) {
-        dispatch(authLogin(userData));
-
-        const label = userData.labels?.[0];
-        if (label === "buyer") {
-          navigate("/buyer"); 
-        } else if (label === "seller") {
-          navigate("/seller");
-        } else {
-          navigate("/"); 
-        }
+    const session = await authService.login(data);
+    if (session) {
+      const userData = await authService.getCurrentUser();
+      if (userData) {
+        dispatch(authLogin({ userData }));
       }
     }
-    } catch (error) {
-      if (error.code === 401) {
-        setError("Invalid credentials. Please try again.");
-      } else {
-        setError("Something went wrong. Please try again later.");
-      }
+  } catch (error) {
+    if (error.code === 401) {
+      setError("Invalid credentials. Please try again.");
+    } else {
+      setError("Something went wrong. Please try again later.");
     }
-  };
+  }
+};
 
   return (
     <div className="relative bg-green-50 flex flex-col justify-center items-center h-screen gap-20 overflow-hidden">
