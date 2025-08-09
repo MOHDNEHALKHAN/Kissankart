@@ -1,23 +1,28 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 function AuthLayout({ children, authentication = true }) {
   const navigate = useNavigate();
   const authStatus = useSelector((state) => state.auth.status);
-  const userData = useSelector((state) => state.auth.userData); // <-- get userData
+  const userData = useSelector((state) => state.auth.userData);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (authentication && !authStatus) {
-      // user not logged in, trying to access protected route
       navigate("/login");
-    } else if (!authentication && authStatus) {
-      // user logged in, trying to access public route
-      let role = "";
-      if (userData && userData.labels && userData.labels[0]) {
-        role = userData.labels[0];
+      setLoading(false);
+      return;
+    }
+
+    if (!authentication && authStatus) {
+      // wait until role is available (e.g., right after signup)
+      if (!userData || userData?.prefs?.role == null) {
+        return; // keep loading
       }
+
+      const role = userData.prefs.role;
       if (role === "seller") {
         navigate("/seller/", { replace: true });
       } else if (role === "buyer") {
@@ -26,6 +31,7 @@ function AuthLayout({ children, authentication = true }) {
         navigate("/", { replace: true });
       }
     }
+
     setLoading(false);
   }, [authentication, authStatus, userData, navigate]);
 

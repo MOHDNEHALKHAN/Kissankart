@@ -1,9 +1,9 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Button, Input } from "../../components/index";
 import logo from "../../assets/FarmerLogo.svg";
 import { useNavigate } from "react-router";
-import authService from '../../services/appwrite/auth'
-import {login} from '../../functions/auth/authSlice'
+import authService from "../../services/appwrite/auth";
+import { login } from "../../functions/auth/authSlice";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 
@@ -12,15 +12,31 @@ function Signup() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [error, setError] = useState("");
-  const {register , handleSubmit} = useForm();
+  const { register, handleSubmit } = useForm();
 
-  const create = async(data) =>{
+  const create = async (data) => {
     setError("");
     try {
-      const userData = await authService.createAccount(data)
-      if(userData) dispatch(login(userData))
-        await authService.sendVerification();  
-        navigate("/login");
+      await authService.createAccount(data);
+
+      await authService.updatePrefs({ role: data.role });
+
+      const updatedUser = await authService.getCurrentUser();
+
+      const mergedUser = updatedUser? { ...updatedUser, prefs: { ...(updatedUser.prefs || {}), role: data.role }, }: null;
+      if (mergedUser) dispatch(login({ userData: mergedUser }));
+
+      authService.sendVerification();
+
+      // Immediate redirect based on selected role for better UX
+      const role = data.role;
+      if (role === "seller") {
+        navigate("/seller/", { replace: true });
+      } else if (role === "buyer") {
+        navigate("/buyer/", { replace: true });
+      } else {
+        navigate("/", { replace: true });
+      }
     } catch (error) {
       if (error.code === 400) {
         setError("Password must be at least 8 characters long.");
@@ -28,26 +44,32 @@ function Signup() {
         setError("Email already exists.");
       }
     }
-  }
+  };
   return (
     <div className="relative bg-green-50 flex flex-col justify-center items-center h-screen gap-10 overflow-hidden">
       <img src={logo} alt="farmer logo" />
-        
-      <form 
+
+      <form
         onSubmit={handleSubmit(create)}
-        className="flex flex-col gap-6 mx-10">
-        <Input 
-          label="Name" type="name" placeholder="Full Name" 
-          {...register("name", {required : true})}
+        className="flex flex-col gap-6 mx-10"
+      >
+        <Input
+          label="Name"
+          type="name"
+          placeholder="Full Name"
+          {...register("name", { required: true })}
         />
-        <Input 
-          label="Email" type="email" placeholder="Email" 
+        <Input
+          label="Email"
+          type="email"
+          placeholder="Email"
           {...register("email", {
             required: true,
             validate: {
-              matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-              "Email address must be a valid address",
-            }
+              matchPatern: (value) =>
+                /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                "Email address must be a valid address",
+            },
           })}
         />
         <div className="w-full relative">
@@ -108,34 +130,39 @@ function Signup() {
             <label className="flex items-center gap-1 text-blue-600 font-medium">
               <Input
                 type="radio"
-                name="label"
+                name="role"
                 value="buyer"
                 className="accent-gray-400 cursor-pointer"
-                {...register("label", { required: true })}
+                {...register("role", { required: true })}
               />
               Buyer
             </label>
             <label className="flex items-center gap-1 text-blue-600 font-medium">
               <Input
                 type="radio"
-                name="label"
+                name="role"
                 value="seller"
                 className="accent-gray-400 cursor-pointer"
-                {...register("label", { required: true })}
+                {...register("role", { required: true })}
               />
               Seller
             </label>
           </div>
         </div>
 
-{error && <p className="text-red-600 font-inter text-center">{error}</p>}
-        <Button  type="submit" className="w-full bg-teal-600 text-white">
+        {error && (
+          <p className="text-red-600 font-inter text-center">{error}</p>
+        )}
+        <Button type="submit" className="w-full bg-teal-600 text-white">
           Sign Up
         </Button>
       </form>
       <p className="font-inter font-medium text-teal-600">
         Already have an account?{" "}
-        <a onClick={() => navigate('/login')} className="font-inter font-semibold text-blue-600 cursor-pointer">
+        <a
+          onClick={() => navigate("/login")}
+          className="font-inter font-semibold text-blue-600 cursor-pointer"
+        >
           Log In
         </a>
       </p>

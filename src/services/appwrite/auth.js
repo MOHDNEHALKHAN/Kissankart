@@ -17,12 +17,22 @@ export class AuthService {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name);
             if (userAccount) {
-                return this.login({ email, password });
+                await this.login({ email, password });
+                return await this.getCurrentUser();
             } else {
                 return userAccount;
             }
         } catch (error) {
             console.log("Appwrite service :: createAccount :: error", error);
+            throw error;
+        }
+    }
+
+    async updatePrefs(prefs) {
+        try {
+            return await this.account.updatePrefs(prefs);
+        } catch (error) {
+            console.log("Appwrite service :: updatePrefs :: error", error);
             throw error;
         }
     }
