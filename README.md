@@ -1,22 +1,30 @@
+# Kissankart🧑🏻‍🌾
 
-# FARMER TRADING APP
+Kissankart is a farmer-first marketplace that enables producers to sell harvests and farm inputs directly to consumers, retailers, and fellow farmers—reducing middlemen and improving margins. Sellers create listings, set transparent prices, manage inventory, and receive secure payments via Razorpay or Stripe. Buyers discover nearby produce and supplies, compare prices, leverage bulk/collective purchasing for better rates, and check out securely. Authenticated users can track orders and manage profiles, while sellers gain basic insights to optimize pricing and demand.
 
- <h3>Tech Stack💻</h3>
+## Features
 
-**Frontend (Client):** `React.js, Tailwind.css, `
+- Common
+    - Sign up, log in, and log out
+    - Profile management
+    - Secure, protected routes
 
-**Backend (Server):** `Node.js, Appwrite`
+- Buyer
+    - Browse and search products
+    - Cart management and checkout
+    - Secure payments via Razorpay or Stripe
+    - Order confirmation and tracking
 
-**Database:** `Appwrite Database`
+- Seller
+    - Create, update, and remove product listings
+    - Manage inventory and pricing
+    - View and process incoming orders
 
+## Tech Stack
+- Frontend: React (Vite), React Router, Redux Tookit, React Hook Form, Tailwind CSS
+- Backend: Appwrite (Auth)
+- Database: Appwrite Database
+- Payments: Razorpay
 
-<h3>Outcomes🌟</h3>
-
-- User can log in & log out of the application  
-- Logged-in users can view the list of available products  
-- Users can add products to their cart and proceed to purchase them  
-- Payments are securely processed using third-party gateways like Razorpay or Stripe  
-- After successful payment, users receive a confirmation and can track orders in their profile
-
- <h3>Feedback📝</h3>
-If you have any feedback, please reach out to me at nehalk482@gmail.com
+## Feedback
+For feedback or inquiries: nehalk482@gmail.com

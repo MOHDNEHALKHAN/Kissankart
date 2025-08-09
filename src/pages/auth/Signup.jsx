@@ -28,15 +28,6 @@ function Signup() {
 
       authService.sendVerification();
 
-      // Immediate redirect based on selected role for better UX
-      const role = data.role;
-      if (role === "seller") {
-        navigate("/seller/", { replace: true });
-      } else if (role === "buyer") {
-        navigate("/buyer/", { replace: true });
-      } else {
-        navigate("/", { replace: true });
-      }
     } catch (error) {
       if (error.code === 400) {
         setError("Password must be at least 8 characters long.");
